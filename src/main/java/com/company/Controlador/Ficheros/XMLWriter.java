@@ -122,7 +122,7 @@ public class XMLWriter {
                 XStream xstream = new XStream();
 
                 xstream.processAnnotations(Incidencia.class);
-                xstream.alias("Incidencias Reportadas", List.class);
+                xstream.alias("IncidenciasReportadas", List.class);
 
                 System.out.format("Generando fichero %s",nombrefichero);
 

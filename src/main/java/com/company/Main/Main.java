@@ -3,8 +3,15 @@ package com.company.Main;
 import com.company.Controlador.DBController;
 import com.company.Controlador.Ficheros.XMLWriter;
 import com.company.Generador;
+import com.company.Modelos.Incidencia;
+import com.thoughtworks.xstream.XStream;
+import org.xmldb.api.base.Collection;
+import org.xmldb.api.base.ResourceIterator;
+import org.xmldb.api.base.ResourceSet;
+import org.xmldb.api.modules.XPathQueryService;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
@@ -12,7 +19,7 @@ import java.util.Scanner;
 public class Main {
 
     //Función genérica de lectura de datos
-    private static <T>T leerdato(T o, String textoDescripcion) {
+    private static <T> T leerdato(T o, String textoDescripcion) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String tipodato = o.getClass().getSimpleName();
@@ -49,6 +56,7 @@ public class Main {
         }
         return o;
     }
+    private static final String dbCol= "TEST-PROYECTO";
 
     public static void main(String[] args) {
         // write your code here
@@ -68,7 +76,7 @@ public class Main {
 
             opcion = leerdato(opcion, "opcion").toUpperCase();
 
-            int nIncidencias=0;
+            int nIncidencias = 0;
             switch (opcion) {
 
                 // CARGA DE DATOS INICIALES
@@ -89,13 +97,44 @@ public class Main {
                     XMLWriter.ExportAreasEmpresa.main(new String[]{});
                     XMLWriter.ExportTiposIncidencias.main(new String[]{});
                     XMLWriter.ExportTrabajosRealizados.main(new String[]{});
-                    break;
 
                     //SUBIDA DE XMLS EXPORTADOS A COLLECION EXISTENTE
+                    DBController.init();
+                    DBController.setDeFaultCollection(dbCol);
+                    //DBController.createCollection(dbCol);
+                    DBController.addFilesToCollection(
+                            new File("src/main/java/com/company/DataXML/Incidencias.xml"),
+                            dbCol);
+                    DBController.addFilesToCollection(
+                            new File("src/main/java/com/company/DataXML/TrabajosRealizados.xml"),
+                            dbCol);
+                    DBController.addFilesToCollection(
+                            new File("src/main/java/com/company/DataXML/Tecnicos.xml"),
+                            dbCol);
+                    DBController.addFilesToCollection(
+                            new File("src/main/java/com/company/DataXML/Areas.xml"),
+                            "TEST-PROYECTO");
+
+                    break;
 
                 case "2":
-                    DBController.init();
+
+                    Incidencia inci = new Incidencia();
+                    inci.setId(9999);
+                    inci.setDescripcion("Problemas con eXist");
+                    inci.setIdArea(2);
+                    inci.setHoras(100);
+                    inci.setResuelta(true);
+                    inci.setIdTecnicoCierre(4);
+
+                  //  insertarIncidencia(inci,dbCol);
+                    inci.setId(9999);
+                    modificarincidencia(inci,dbCol);
+                    borrarIncidencia(inci,dbCol);
+
                     break;
+
+
 
                 //SALIR DEL PROGRAMA
 
@@ -111,6 +150,124 @@ public class Main {
             System.out.println("\nPulsa una tecla para continuar....");
             sc.nextLine();
         } while (!(opcion.equals("5")));
+
+    }
+
+    private static void insertarIncidencia(Incidencia incidencia, String colName) {
+
+        XStream xstream = new XStream();
+        xstream.processAnnotations(Incidencia.class);
+        String inciXML = xstream.toXML(incidencia);
+
+        Collection col = DBController.getCollectionFromDB(colName);
+        if (col != null) {
+            try {
+                XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                System.out.printf("Inserto: %s \n", incidencia.getId());
+                //Consulta para insertar --> update insert ... into
+                ResourceSet result = servicio.query("update insert " + inciXML + " into /IncidenciasReportadas");
+                System.out.println("MIRA ESTO -->" + result);
+                col.close(); //borramos
+                System.out.println("Insertado.");
+            } catch (Exception e) {
+                System.out.println("Error al Insertar.");
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error en la conexión. Comprueba datos.");
+        }
+    }
+
+    private static boolean comprobarId(int id, String colName) {
+
+        Collection col = DBController.getCollectionFromDB(colName);
+        if (col != null) {
+            try {
+                XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                //Consulta para consultar la información de un departamento
+                String myQuery= String.format("/IncidenciasReportadas/Incidencia[@Id='%d']",id);
+                ResourceSet result = servicio.query(myQuery);
+                ResourceIterator i;
+                i = result.getIterator();
+                col.close();
+                if (!i.hasMoreResources()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } catch (Exception e) {
+                System.out.println("Error al consultar.");
+                // e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error en la conexión. Comprueba datos.");
+        }
+
+        return false;
+
+    }// comprobardep
+
+    private static void modificarincidencia(Incidencia incidencia, String colName) {
+
+        int idIncidencia= incidencia.getId();
+
+        if (comprobarId(idIncidencia,colName)) {
+
+            Collection col = DBController.getCollectionFromDB(colName);
+            if (col != null) {
+                try {
+                    System.out.printf("Actualizo la incidencia: %s\n", idIncidencia);
+                    XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                    //Consulta para modificar/actualizar un valor --> update value
+                    String myQuery= String
+                            .format("update value /IncidenciasReportadas/Incidencia[@Id='%d']/horas with data(%d)",
+                                    incidencia.getId(),
+                                    incidencia.getHoras());
+
+                    ResourceSet result = servicio.query(myQuery);
+
+                    col.close();
+                    System.out.println("Dep actualizado.");
+                } catch (Exception e) {
+                    System.out.println("Error al actualizar.");
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Error en la conexión. Comprueba datos.");
+            }
+        } else {
+            System.out.println("El departamento NO EXISTE.");
+        }
+    }
+
+    private static void borrarIncidencia(Incidencia incidencia, String colName) {
+        int idIncidencia= incidencia.getId();
+
+        if (comprobarId(idIncidencia,colName)) {
+
+            Collection col = DBController.getCollectionFromDB(colName);
+            if (col != null) {
+                try {
+                    System.out.printf("Borro la incidencia: %s\n", incidencia.getId());
+                    XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                    //Consulta para borrar un departamento --> update delete
+                    String myQuery= String
+                            .format("update delete /IncidenciasReportadas/Incidencia[@Id='%d']",
+                                    incidencia.getId()
+                            );
+                    ResourceSet result = servicio.query(myQuery);
+                    col.close();
+                    System.out.println("Incidencia borrada.");
+                } catch (Exception e) {
+                    System.out.println("Error al borrar.");
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Error en la conexión. Comprueba datos.");
+            }
+        } else {
+            System.out.println("El departamento NO EXISTE.");
+        }
 
     }
 }

@@ -15,7 +15,7 @@ public class DBController {
 
     private static String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
     private static final String URI = "xmldb:exist://localhost:8081/exist/xmlrpc/db"; //URI colección
-    private static final String usu = null; //Usuario
+    private static final String usu = "admin"; //Usuario
     private static final String usuPwd = null; //Clave
     private static boolean initialized = false;
     private static Collection defaultCollection = null;
@@ -146,7 +146,7 @@ public class DBController {
 
     public static boolean createCollection(String colName) {
         init();
-        if (!existCollection(colName)) {
+      //  if (!existCollection(colName)) {
             Collection col = null;
             try {
                 CollectionManagementService mgtService = (CollectionManagementService) col.getService("CollectionManagementService", "1.0");
@@ -155,7 +155,7 @@ public class DBController {
             } catch (XMLDBException e) {
                 System.out.println("No se ha podido crear la coleccion " + colName.toUpperCase());
             }
-        }
+       // }
         return false;
     }
 
@@ -165,7 +165,7 @@ public class DBController {
         Collection mycollection = null;
         if (colName == null || colName.equals("")) {
             if (defaultCollection == null) {
-                System.out.println("Nose ha especificado ninguna colleción válida");
+                System.out.println("No se ha especificado ninguna colleción válida");
                 return false;
             } else mycollection = defaultCollection;
         } else {
@@ -173,7 +173,7 @@ public class DBController {
             try {
                 mycollection = DatabaseManager.getCollection(myURI, usu, usuPwd);
             } catch (XMLDBException e) {
-                System.out.println("Error en la conexión a la coleccion ");
+                System.out.println("Error en la conexión a la coleccion " );
                 return false;
             }
         }
@@ -192,7 +192,7 @@ public class DBController {
                 System.out.printf("Error en la agregación del fichero ", file.getName());
                 return false;
             } catch (NullPointerException n){
-                System.out.println("No se encuentra fichero "+file.getPath());
+                System.out.println("No se encuentra fichero "+file.getPath() + " o no se encuentra fichero "+file.getPath());
             }
         }
         return true;
