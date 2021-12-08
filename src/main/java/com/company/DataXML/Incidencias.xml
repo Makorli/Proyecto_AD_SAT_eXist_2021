@@ -1,0 +1,602 @@
+<Incidencias_.0020Reportadas>
+  <Incidencia Id="1" Resuelta="NO">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>1</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="2" Resuelta="SI">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>3</IdArea>
+    <horas>4</horas>
+    <idTecnicoCierre>5</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="3" Resuelta="SI">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>4</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>3</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="4" Resuelta="NO">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>2</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="5" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>6</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>5</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="6" Resuelta="SI">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>4</IdArea>
+    <horas>5</horas>
+    <idTecnicoCierre>3</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="7" Resuelta="NO">
+    <descripcion>Problema red</descripcion>
+    <IdArea>6</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="8" Resuelta="SI">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>3</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="9" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>6</IdArea>
+    <horas>6</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="10" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>3</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="11" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>3</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="12" Resuelta="NO">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>2</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="13" Resuelta="NO">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>2</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="14" Resuelta="SI">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>1</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="15" Resuelta="NO">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>6</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="16" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>6</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>5</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="17" Resuelta="SI">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>2</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="18" Resuelta="SI">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>3</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="19" Resuelta="NO">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>2</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="20" Resuelta="SI">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>4</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>2</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="21" Resuelta="NO">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>6</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="22" Resuelta="SI">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>6</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="23" Resuelta="NO">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>3</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="24" Resuelta="SI">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>2</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>3</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="25" Resuelta="NO">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>3</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="26" Resuelta="SI">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>6</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>3</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="27" Resuelta="SI">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>6</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>4</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="28" Resuelta="NO">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>4</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="29" Resuelta="NO">
+    <descripcion>Problema red</descripcion>
+    <IdArea>7</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="30" Resuelta="SI">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>1</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="31" Resuelta="SI">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>7</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="32" Resuelta="NO">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>4</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="33" Resuelta="NO">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>1</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="34" Resuelta="NO">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>3</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="35" Resuelta="NO">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>6</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="36" Resuelta="SI">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>2</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>5</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="37" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>7</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>4</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="38" Resuelta="NO">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>2</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="39" Resuelta="NO">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>5</IdArea>
+    <horas>5</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="40" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>2</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>2</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="41" Resuelta="NO">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>2</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="42" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>2</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>2</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="43" Resuelta="NO">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>7</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="44" Resuelta="SI">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>3</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>5</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="45" Resuelta="SI">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>2</IdArea>
+    <horas>6</horas>
+    <idTecnicoCierre>5</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="46" Resuelta="SI">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>4</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>4</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="47" Resuelta="SI">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>6</IdArea>
+    <horas>7</horas>
+    <idTecnicoCierre>4</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="48" Resuelta="NO">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>1</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="49" Resuelta="SI">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>5</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="50" Resuelta="NO">
+    <descripcion>Problema red</descripcion>
+    <IdArea>6</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="51" Resuelta="NO">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>1</IdArea>
+    <horas>6</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="52" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>7</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>5</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="53" Resuelta="NO">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>5</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="54" Resuelta="NO">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>6</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="55" Resuelta="NO">
+    <descripcion>Problema red</descripcion>
+    <IdArea>4</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="56" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>5</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="57" Resuelta="NO">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>6</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="58" Resuelta="SI">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>1</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>2</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="59" Resuelta="SI">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>1</IdArea>
+    <horas>5</horas>
+    <idTecnicoCierre>5</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="60" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>7</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>2</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="61" Resuelta="NO">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>2</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="62" Resuelta="NO">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>7</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="63" Resuelta="NO">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>6</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="64" Resuelta="NO">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>6</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="65" Resuelta="NO">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>6</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="66" Resuelta="NO">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>2</IdArea>
+    <horas>6</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="67" Resuelta="NO">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>5</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="68" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>7</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>4</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="69" Resuelta="NO">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>6</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="70" Resuelta="SI">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>6</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="71" Resuelta="NO">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>5</IdArea>
+    <horas>4</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="72" Resuelta="SI">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>4</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>3</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="73" Resuelta="SI">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>6</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="74" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>4</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>2</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="75" Resuelta="NO">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>7</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="76" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>4</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="77" Resuelta="SI">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>5</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>3</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="78" Resuelta="NO">
+    <descripcion>Fallo metodología</descripcion>
+    <IdArea>2</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="79" Resuelta="SI">
+    <descripcion>Problema red</descripcion>
+    <IdArea>1</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>4</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="80" Resuelta="NO">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>1</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="81" Resuelta="SI">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>7</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="82" Resuelta="NO">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>4</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="83" Resuelta="SI">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>1</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>3</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="84" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>7</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>2</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="85" Resuelta="SI">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>1</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>4</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="86" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>1</IdArea>
+    <horas>4</horas>
+    <idTecnicoCierre>6</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="87" Resuelta="NO">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>4</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="88" Resuelta="NO">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>6</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="89" Resuelta="SI">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>4</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>2</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="90" Resuelta="NO">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>3</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="91" Resuelta="SI">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>2</IdArea>
+    <horas>1</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="92" Resuelta="NO">
+    <descripcion>Usuario problematico</descripcion>
+    <IdArea>1</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="93" Resuelta="SI">
+    <descripcion>Problema Hardware</descripcion>
+    <IdArea>6</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>3</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="94" Resuelta="NO">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>2</IdArea>
+    <horas>0</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="95" Resuelta="SI">
+    <descripcion>Problema de SW</descripcion>
+    <IdArea>7</IdArea>
+    <horas>6</horas>
+    <idTecnicoCierre>7</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="96" Resuelta="NO">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>3</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="97" Resuelta="NO">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>1</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="98" Resuelta="NO">
+    <descripcion>Error página Web</descripcion>
+    <IdArea>1</IdArea>
+    <horas>4</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="99" Resuelta="NO">
+    <descripcion>Error certificados</descripcion>
+    <IdArea>5</IdArea>
+    <horas>3</horas>
+    <idTecnicoCierre>0</idTecnicoCierre>
+  </Incidencia>
+  <Incidencia Id="100" Resuelta="SI">
+    <descripcion>Error de acceso</descripcion>
+    <IdArea>1</IdArea>
+    <horas>2</horas>
+    <idTecnicoCierre>4</idTecnicoCierre>
+  </Incidencia>
+</Incidencias_.0020Reportadas>

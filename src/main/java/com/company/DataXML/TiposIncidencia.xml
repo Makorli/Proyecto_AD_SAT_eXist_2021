@@ -1,0 +1,10 @@
+<TiposDeIncidencia>
+  <string>Problema Hardware</string>
+  <string>Error de acceso</string>
+  <string>Problema de SW</string>
+  <string>Error página Web</string>
+  <string>Error certificados</string>
+  <string>Fallo metodología</string>
+  <string>Problema red</string>
+  <string>Usuario problematico</string>
+</TiposDeIncidencia>

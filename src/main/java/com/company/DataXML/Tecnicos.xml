@@ -1,0 +1,23 @@
+<DepartamentoTecnico>
+  <Tecnico id="1" especialidad="General">
+    <nombre>Juanjo</nombre>
+  </Tecnico>
+  <Tecnico id="2" especialidad="Programacion">
+    <nombre>Karmen</nombre>
+  </Tecnico>
+  <Tecnico id="3" especialidad="Programacion">
+    <nombre>Blanca</nombre>
+  </Tecnico>
+  <Tecnico id="4" especialidad="Redes">
+    <nombre>Dominique</nombre>
+  </Tecnico>
+  <Tecnico id="5" especialidad="Comunicaciones">
+    <nombre>Mikel</nombre>
+  </Tecnico>
+  <Tecnico id="6" especialidad="Sistemas">
+    <nombre>Gorka</nombre>
+  </Tecnico>
+  <Tecnico id="7" especialidad="General">
+    <nombre>Nuria</nombre>
+  </Tecnico>
+</DepartamentoTecnico>

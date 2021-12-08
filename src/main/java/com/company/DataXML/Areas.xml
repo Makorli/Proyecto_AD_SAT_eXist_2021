@@ -1,0 +1,37 @@
+<AreasEmpresa>
+  <Area>
+    <id>1</id>
+    <nombreArea>Ingeniería</nombreArea>
+    <numeroPersonas>30</numeroPersonas>
+  </Area>
+  <Area>
+    <id>2</id>
+    <nombreArea>Taller</nombreArea>
+    <numeroPersonas>20</numeroPersonas>
+  </Area>
+  <Area>
+    <id>3</id>
+    <nombreArea>Compras</nombreArea>
+    <numeroPersonas>8</numeroPersonas>
+  </Area>
+  <Area>
+    <id>4</id>
+    <nombreArea>RRHH</nombreArea>
+    <numeroPersonas>4</numeroPersonas>
+  </Area>
+  <Area>
+    <id>5</id>
+    <nombreArea>Administración</nombreArea>
+    <numeroPersonas>5</numeroPersonas>
+  </Area>
+  <Area>
+    <id>6</id>
+    <nombreArea>TICS</nombreArea>
+    <numeroPersonas>3</numeroPersonas>
+  </Area>
+  <Area>
+    <id>7</id>
+    <nombreArea>Montaje</nombreArea>
+    <numeroPersonas>10</numeroPersonas>
+  </Area>
+</AreasEmpresa>
