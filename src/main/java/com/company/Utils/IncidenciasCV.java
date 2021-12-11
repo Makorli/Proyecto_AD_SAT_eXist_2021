@@ -4,6 +4,7 @@ import com.company.Modelos.Incidencia;
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.converters.UnmarshallingContext;
+import com.thoughtworks.xstream.converters.basic.BooleanConverter;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
@@ -13,19 +14,27 @@ public class IncidenciasCV implements Converter {
     public void marshal(Object o, HierarchicalStreamWriter writer, MarshallingContext context) {
         Incidencia incidencia = (Incidencia) o;
 
-        writer.addAttribute("id", String.valueOf(incidencia.getId()));
-        writer.addAttribute("area", String.valueOf(incidencia.getIdArea()));
-        writer.addAttribute("resuelta", String.valueOf(incidencia.isResuelta()));
+        //Atributos
+        writer.addAttribute("Id", String.valueOf(incidencia.getId()));
+        writer.addAttribute("Resuelta", incidencia.isResuelta()?"SI":"NO");
 
+        //descripcion
         writer.startNode("descripcion");
         writer.setValue(incidencia.getDescripcion());
         writer.endNode();
 
+        //IdArea
+        writer.startNode("IdArea");
+        writer.setValue(String.valueOf(incidencia.getIdArea()));
+        writer.endNode();
+
+        //horas
         writer.startNode("horas");
         writer.setValue(String.valueOf(incidencia.getHoras()));
         writer.endNode();
 
-        writer.startNode("closer");
+        //idTecnicoCierre
+        writer.startNode("idTecnicoCierre");
         writer.setValue(String.valueOf(incidencia.getIdTecnicoCierre()));
         writer.endNode();
     }
@@ -34,19 +43,26 @@ public class IncidenciasCV implements Converter {
     public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {
         Incidencia incidencia = new Incidencia();
 
-        incidencia.setId(Integer.parseInt(reader.getAttribute("id")));
-        incidencia.setIdArea(Integer.parseInt(reader.getAttribute("area")));
-        incidencia.setResuelta(Boolean.parseBoolean(reader.getAttribute("resuelta")));
-        //tecnico.setNombre(reader.getValue());
+        //Atributos
+        incidencia.setId(Integer.parseInt(reader.getAttribute("Id")));
+        incidencia.setResuelta(Boolean.parseBoolean(reader.getAttribute("Resuelta")));
 
+        //descripcion
         reader.moveDown();
-        incidencia.setDescripcion(reader.getValue());
+        incidencia.setDescripcion(String.valueOf(reader.getValue()));
         reader.moveUp();
 
+        //IdArea
+        reader.moveDown();
+        incidencia.setIdArea(Integer.parseInt(reader.getValue()));
+        reader.moveUp();
+
+        //Horas
         reader.moveDown();
         incidencia.setHoras(Integer.parseInt(reader.getValue()));
         reader.moveUp();
 
+        //idTecnicoCierre
         reader.moveDown();
         incidencia.setIdTecnicoCierre(Integer.parseInt(reader.getValue()));
         reader.moveUp();
@@ -58,4 +74,6 @@ public class IncidenciasCV implements Converter {
     public boolean canConvert(Class aClass) {
         return aClass.equals(Incidencia.class);
     }
+
+
 }

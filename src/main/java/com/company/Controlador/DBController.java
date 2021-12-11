@@ -19,6 +19,7 @@ public class DBController {
     private static final String usuPwd = null; //Clave
     private static boolean initialized = false;
     private static Collection defaultCollection = null;
+    private static String defaultCollectionName ="";
 
     static Database database = null;
 
@@ -56,7 +57,7 @@ public class DBController {
     }
 
     public static Collection getDefaultCollection() {
-        return defaultCollection;
+        return getCollectionFromDB(defaultCollectionName);
     }
 
     public static Collection getCollectionFromDB(String colName) {
@@ -79,6 +80,7 @@ public class DBController {
 
     public static boolean setDeFaultCollection(String colName) {
         init();
+        defaultCollectionName = colName;
         Collection tempcol = getCollectionFromDB(colName);
         if (tempcol == null) return false;
         defaultCollection = tempcol;

@@ -10,7 +10,7 @@ import java.io.Serializable;
  * Se debe usar siempre el metodo *setatributo* para establecer los valores de los mismos
  * ya que el control de tamaño esta implementado en el propio campo.
  */
-@XStreamAlias("Incidencia")
+@XStreamAlias("Trabajo")
 public class Trabajo implements Serializable {
 
     //ATRIBUTOS
@@ -19,7 +19,6 @@ public class Trabajo implements Serializable {
     @XStreamAsAttribute()
     private int id;
     @XStreamAlias("Incidencia")
-    @XStreamAsAttribute
     private int idIncidencia;
     @XStreamAlias("Tecnico")//Id de la incidencia a la que se dedica el tiempo.
     private int idTecnico;      //ID del tecnico que realiza la tarea.

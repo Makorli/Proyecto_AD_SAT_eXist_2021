@@ -43,6 +43,7 @@ public class Incidencia implements Serializable {
         setIdArea(idArea);
         this.resuelta = false;
         this.horas=0;
+        idTecnicoCierre=0;
     }
 
     // GETTERS Y SETTERS

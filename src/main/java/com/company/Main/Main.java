@@ -2,6 +2,7 @@ package com.company.Main;
 
 import com.company.Controlador.DBController;
 import com.company.Controlador.Ficheros.XMLWriter;
+import com.company.Controlador.IncidenciasDAO;
 import com.company.Generador;
 import com.company.Modelos.Incidencia;
 import com.thoughtworks.xstream.XStream;
@@ -14,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -56,22 +58,30 @@ public class Main {
         }
         return o;
     }
-    private static final String dbCol= "TEST-PROYECTO";
+
+    private static final String dbCol = "TEST-PROYECTO";
 
     public static void main(String[] args) {
         // write your code here
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String opcion = "";
-
         Scanner sc = new Scanner(System.in);
+
+        DBController.setDeFaultCollection(dbCol);
+        IncidenciasDAO cti = new IncidenciasDAO();
         do {
             //MONTAMOS EL MENÚ
 
             System.out.println(
-                    "1. Generar y cargar Datos de Prueba.\n" +
-                            "2. Generar y cargar Datos de Prueba.\n" +
-                            "5. Salir\n"
+                    "\n1. Generar y cargar Datos de Prueba.\n" +
+                            "2. Insertar Incidencia\n" +
+                            "3. Modificar Incidencia\n" +
+                            "4. Cerrar Incidencia\n" +
+                            "5. Imputar horas Incidencia\n" +
+                            "6. Eliminar Incidencia\n" +
+                            "7. Listar todas las incidencia\n" +
+                            "8. Consultas\n" +
+
+                            "0. Salir\n"
             );
 
             opcion = leerdato(opcion, "opcion").toUpperCase();
@@ -113,32 +123,42 @@ public class Main {
                             dbCol);
                     DBController.addFilesToCollection(
                             new File("src/main/java/com/company/DataXML/Areas.xml"),
-                            "TEST-PROYECTO");
-
+                            dbCol);
                     break;
-
+                //Insertar Incidencia
                 case "2":
-
-                    Incidencia inci = new Incidencia();
-                    inci.setId(9999);
-                    inci.setDescripcion("Problemas con eXist");
-                    inci.setIdArea(2);
-                    inci.setHoras(100);
-                    inci.setResuelta(true);
-                    inci.setIdTecnicoCierre(4);
-
-                  //  insertarIncidencia(inci,dbCol);
-                    inci.setId(9999);
-                    modificarincidencia(inci,dbCol);
-                    borrarIncidencia(inci,dbCol);
-
+                    Incidencia incidencia = cti.crear();
+                    cti.insert(incidencia);
                     break;
-
-
-
+                //Modificar Incidencia
+                case "3":
+                    cti.modificar();
+                    break;
+                //Cerrar Incidencia
+                case "4":
+                    //TODO
+                    break;
+                //Imputar Horas incidencia
+                case "5":
+                    //TODO
+                    break;
+                //Eliminar Incidencia
+                case "6":
+                    cti.delete(cti.seleccionar());
+                    break;
+                //Listar todas las incidencias
+                case "7":
+                    List<Incidencia> myList = cti.getAllObjects();
+                    for (Incidencia i : myList) {
+                        System.out.println(i);
+                    }
+                //Consultas
+                case "8":
+                    //TODO
+                    break;
                 //SALIR DEL PROGRAMA
 
-                case "5":
+                case "10":
                     System.out.println("Bye Bye");
                     break;
 
@@ -146,9 +166,6 @@ public class Main {
                 default:
                     System.out.println("Opcion incorrecta");
             }
-            //PAUSA PARA VER LISTADOS Y SALIDA DE CONSOLA
-            System.out.println("\nPulsa una tecla para continuar....");
-            sc.nextLine();
         } while (!(opcion.equals("5")));
 
     }
@@ -185,7 +202,7 @@ public class Main {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Consulta para consultar la información de un departamento
-                String myQuery= String.format("/IncidenciasReportadas/Incidencia[@Id='%d']",id);
+                String myQuery = String.format("/IncidenciasReportadas/Incidencia[@Id='%d']", id);
                 ResourceSet result = servicio.query(myQuery);
                 ResourceIterator i;
                 i = result.getIterator();
@@ -209,9 +226,9 @@ public class Main {
 
     private static void modificarincidencia(Incidencia incidencia, String colName) {
 
-        int idIncidencia= incidencia.getId();
+        int idIncidencia = incidencia.getId();
 
-        if (comprobarId(idIncidencia,colName)) {
+        if (comprobarId(idIncidencia, colName)) {
 
             Collection col = DBController.getCollectionFromDB(colName);
             if (col != null) {
@@ -219,7 +236,8 @@ public class Main {
                     System.out.printf("Actualizo la incidencia: %s\n", idIncidencia);
                     XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                     //Consulta para modificar/actualizar un valor --> update value
-                    String myQuery= String
+
+                    String myQuery = String
                             .format("update value /IncidenciasReportadas/Incidencia[@Id='%d']/horas with data(%d)",
                                     incidencia.getId(),
                                     incidencia.getHoras());
@@ -241,9 +259,9 @@ public class Main {
     }
 
     private static void borrarIncidencia(Incidencia incidencia, String colName) {
-        int idIncidencia= incidencia.getId();
+        int idIncidencia = incidencia.getId();
 
-        if (comprobarId(idIncidencia,colName)) {
+        if (comprobarId(idIncidencia, colName)) {
 
             Collection col = DBController.getCollectionFromDB(colName);
             if (col != null) {
@@ -251,7 +269,7 @@ public class Main {
                     System.out.printf("Borro la incidencia: %s\n", incidencia.getId());
                     XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                     //Consulta para borrar un departamento --> update delete
-                    String myQuery= String
+                    String myQuery = String
                             .format("update delete /IncidenciasReportadas/Incidencia[@Id='%d']",
                                     incidencia.getId()
                             );
@@ -269,6 +287,30 @@ public class Main {
             System.out.println("El departamento NO EXISTE.");
         }
 
+    }
+
+    /**
+     * Procedmiento de lectura y creación de una incidencia.
+     *
+     * @return
+     */
+    public Incidencia crear() {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Incidencia incidencia = new Incidencia();
+
+        String area = "";
+        String descripcion = "";
+        try {
+            System.out.println("Area que reporta la incidencia?: ");
+            area = br.readLine();
+            System.out.println("Descipción de la incidencia: ");
+            descripcion = br.readLine();
+        } catch (IOException e) {
+            System.out.println("Error en la lectura de datos");
+        }
+        //TODO asignacion y comrobacion de campos leidos
+
+        return incidencia;
     }
 }
 

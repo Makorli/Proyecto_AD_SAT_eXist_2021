@@ -2,6 +2,7 @@ package com.company.Modelos;
 
 import com.company.Utils.TechSpecialization;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 import java.io.Serializable;
 
@@ -17,6 +18,7 @@ public class Tecnico implements Serializable {
     //ATRIBUTOS
 
     @XStreamAlias("Id")
+    @XStreamAsAttribute()
     private int id;
     private String nombre;
     private TechSpecialization especialidad;

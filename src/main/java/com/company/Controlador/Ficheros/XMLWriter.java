@@ -26,11 +26,12 @@ public class XMLWriter {
             try{
                 //instaciamos el Xstream
                 XStream xstream = new XStream();
-                xstream.registerConverter(new TecnicoCV());
+                //xstream.registerConverter(new TecnicoCV());
+                xstream.processAnnotations(Tecnico.class);
 
                 //Asociamos las etiquetas a las clases /atributos  correspondientes.
                 xstream.alias("DepartamentoTecnico", List.class);
-                xstream.alias("Tecnico", Tecnico.class);
+                //xstream.alias("Tecnico", Tecnico.class);
 
                 System.out.format("Generando fichero %s",nombrefichero);
 
@@ -57,10 +58,10 @@ public class XMLWriter {
             try{
                 //instaciamos el Xstream
                 XStream xstream = new XStream();
+                xstream.processAnnotations(Area.class);
 
                 //Asociamos las etiquetas a las clases correspondientes.
                 xstream.alias("AreasEmpresa", List.class);
-                xstream.alias("Area", Area.class);
 
                 System.out.format("Generando fichero %s\n",nombrefichero);
 
@@ -120,7 +121,6 @@ public class XMLWriter {
             try{
                 //instaciamos el Xstream
                 XStream xstream = new XStream();
-
                 xstream.processAnnotations(Incidencia.class);
                 xstream.alias("IncidenciasReportadas", List.class);
 
@@ -209,7 +209,6 @@ public class XMLWriter {
             try{
                 //instaciamos el Xstream
                 XStream xstream = new XStream();
-
                 xstream.processAnnotations(Trabajo.class);
                 xstream.alias("Trabajos", List.class);
 

@@ -33,5 +33,43 @@ public class Utils {
         return mistr.toString();
     }
 
+    //Función genérica de lectura de datos
+    public static <T> T leerdato(T o, String textoDescripcion) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        String tipodato = o.getClass().getSimpleName();
+        textoDescripcion = textoDescripcion == null ? "" : textoDescripcion;
+
+        switch (tipodato.toUpperCase()) {
+
+            case "INTEGER":
+                try {
+                    System.out.format("Introduce %s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
+                    o = (T) Integer.valueOf(br.readLine());
+                } catch (NumberFormatException | IOException e) {
+                    System.out.format("Dato %s introducido no correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
+                }
+                break;
+            case "STRING":
+                try {
+                    System.out.format("Introduce %s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
+                    o = (T) br.readLine();
+                } catch (IOException e) {
+                    System.out.format("Dato %s introducido no correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
+                }
+                break;
+            case "DOUBLE":
+                try {
+                    System.out.format("Introduce %s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
+                    o = (T) Double.valueOf(br.readLine());
+                } catch (NumberFormatException | IOException e) {
+                    System.out.format("Dato %s introducido no correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
+                }
+                break;
+
+            default:
+                System.out.println("ERROR.Tipo de dato no reconocido");
+        }
+        return o;
+    }
 }

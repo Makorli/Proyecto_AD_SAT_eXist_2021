@@ -1,10 +1,17 @@
 package com.company.Modelos;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+
 import java.io.Serializable;
 
+@XStreamAlias("Area")
 public class Area implements Serializable {
 
+    @XStreamAlias("Id")
+    @XStreamAsAttribute()
     private int id;
+    @XStreamAlias("Nombre")
     private String nombreArea;
     private int numeroPersonas;
 
