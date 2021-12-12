@@ -170,7 +170,7 @@ public class IncidenciasDAO {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Consulta para consultar la información de un departamento
-                String myQuery = String.format("for $incidencia in /%s/%s return $incidencia", myRoot, myNode);
+                String myQuery = String.format("for $incidencia in /%s/%s order by ($incidencia/@Id/number()) return $incidencia", myRoot, myNode);
                 ResourceSet result = servicio.query(myQuery);
                 ResourceIterator i = result.getIterator();
                 col.close();
@@ -206,7 +206,7 @@ public class IncidenciasDAO {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Consulta para consultar la información de un departamento
-                String myQuery = String.format("for $incidencia in /%s/%s return $incidencia", myRoot, myNode);
+                String myQuery = String.format("for $incidencia in /%s/%s order by ($incidencia/@Id/number()) return $incidencia", myRoot, myNode);
                 ResourceSet result = servicio.query(myQuery);
                 ResourceIterator i = result.getIterator();
                 col.close();
@@ -224,6 +224,55 @@ public class IncidenciasDAO {
             }
         } else {
             System.out.println("Error en la conexión. Comprueba datos.");
+        }
+        return myList;
+    }
+
+    public List<Incidencia> getAllObjectsByStateAndArea(boolean estado, int idArea) {
+        List<Incidencia> myList = new ArrayList<>();
+        Area area = new AreasDAO().getObjectById(idArea);
+        if (area!=null) {
+            init();
+            if (col != null) {
+                try {
+                    XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                    //Consulta para consultar la información de un departamento
+                    String state = (estado ? "\"SI\"" : "\"NO\"");
+                    String myQuery = String.format("for $incidencia in /%s/%s where $incidencia/@Resuelta=%s and $incidencia/IdArea=%d  order by ($incidencia/@Id/number()) return $incidencia\n"
+                            , myRoot, myNode, state, idArea);
+                    ResourceSet result = servicio.query(myQuery);
+                    ResourceIterator i = result.getIterator();
+                    col.close();
+
+                    //Preparamos conversion de XML a objetos
+                    XStream xStream = new XStream();
+                    xStream.alias("Incidencia", Incidencia.class);
+                    xStream.addPermission(AnyTypePermission.ANY);       //Permtimos los permisos de desaserializacion
+                    xStream.registerConverter(new IncidenciasCV());     //Asignamos conversor
+
+                    //Convertimos objetos a XMl y listamos por pantalla
+                    System.out.printf("LISTADO DE INCIDENCIAS %s EN EL AREA %s\n\n",
+                            estado ? "ABIERTAS" : "CERRADAS",
+                            area.getNombreArea()
+                    );
+                    while (i.hasMoreResources()) {
+                        String objectXML = (String) i.nextResource().getContent();
+                        Incidencia incidencia = (Incidencia) xStream.fromXML(objectXML);
+                        myList.add(incidencia);
+                        System.out.println(incidencia);
+                    }
+
+                    return myList;
+
+                } catch (XMLDBException e) {
+                    System.out.println("Error al consultar.");
+                    // e.printStackTrace();
+                }
+            } else {
+                System.out.println("Error en la conexión. Comprueba datos.");
+            }
+        }else{
+            System.out.println("El area no esta disponible en este momento, intentalo más tarde");
         }
         return myList;
     }

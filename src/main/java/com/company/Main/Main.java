@@ -1,21 +1,18 @@
 package com.company.Main;
 
+import com.company.Controlador.AreasDAO;
 import com.company.Controlador.DBController;
 import com.company.Controlador.Ficheros.XMLWriter;
 import com.company.Controlador.IncidenciasDAO;
 import com.company.Controlador.Generador;
+import com.company.Modelos.Area;
 import com.company.Modelos.Incidencia;
 import com.company.Utils.Utils;
 import com.thoughtworks.xstream.XStream;
-import org.xmldb.api.base.Collection;
-import org.xmldb.api.base.ResourceIterator;
-import org.xmldb.api.base.ResourceSet;
-import org.xmldb.api.modules.XPathQueryService;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Scanner;
 
@@ -86,7 +83,7 @@ public class Main {
                 }
                 case "4":   //Cerrar Incidencia
                 {
-                    cti.closeIncidencia(cti.seleccionar().getId(),null);
+                    cti.closeIncidencia(cti.seleccionar().getId(), null);
                     break;
                 }
                 case "5":   //Imputar Horas incidencia
@@ -109,16 +106,83 @@ public class Main {
                 }
                 case "8":   //Consultas
                 {
-                    String opcion8="";
+                    String opcion8 = "";
                     do {
+                        showQueryMenu();
                         opcion8 = Utils.leerdato(opcion, "Opcion").toUpperCase();
-                        showMainMenu();
-                        switch (opcion8){
-                            case "0"-> System.out.println("Menu Principal");
-                            case "1"->{}
-                            case "2"->{}
-                            case "3"->{}
-                            default -> System.out.println("Opcion incorrecta");
+                        switch (opcion8) {
+                            //Salir Menu
+                            case "0": {
+                                System.out.println("Menu Principal");
+                                break;
+                            }
+                            //Consulta incidencias por Area y estado a XML
+                            case "1": {
+                                String lectura = "";
+                                boolean todok = false;
+                                boolean estado = false;
+                                do {
+                                    lectura = Utils.leerdato(lectura, "Introduce estado de incidencia -> Cerradas (C) / Abiertas (A)");
+                                    if (lectura.equalsIgnoreCase("A") ||
+                                            lectura.equalsIgnoreCase("Abiertas")) {
+                                        estado = false;
+                                        todok = true;
+                                    } else if (lectura.equalsIgnoreCase("C") ||
+                                            lectura.equalsIgnoreCase("Cerradas")) {
+                                        estado = true;
+                                        todok = true;
+                                    }
+                                } while (!todok);
+                                System.out.println("\n");
+                                Area area = new AreasDAO().seleccionar();
+                                List<Incidencia> incidenciaList = new IncidenciasDAO()
+                                        .getAllObjectsByStateAndArea(estado, area.getId());
+
+                                //EXPORTAMOS LA LISTA A UN FICHERO XML
+                                //MOSTRAMOS LA LISTA EN PANTALLA
+                                String nombrefichero = "src/main/java/com/company/ExportedXMLData/ConsultaEstadoAreas.xml";
+                                try {
+                                    XStream xstream = new XStream();
+                                    xstream.processAnnotations(Incidencia.class);
+                                    xstream.alias("IncidenciasReportadas", List.class);
+                                    System.out.format("\nListado exportado en fichero %s\n", nombrefichero);
+                                    xstream.toXML(incidenciaList, new FileOutputStream(nombrefichero));
+
+                                } catch (FileNotFoundException f) {
+                                    System.out.println("Error E/S" + f.getMessage());
+                                }
+
+                                break;
+                            }
+                            //Top Incidencias abiertas con más horas a XML
+                            case "2": {
+                                Utils.XQuerysFromFiles xq= new Utils.XQuerysFromFiles();
+                                List<Incidencia> myList = xq.getIncidenciasListResult(
+                                        "src/main/java/com/company/XMLQuerys/Top10Incidencias.xq",
+                                        DBController.getDefaultCollection());
+
+                                //EXPORTAMOS LA LISTA A UN FICHERO XML
+                                String nombrefichero = "src/main/java/com/company/ExportedXMLData/Top10IncidenciasHoras.xml";
+                                try {
+                                    XStream xstream = new XStream();
+                                    xstream.processAnnotations(Incidencia.class);
+                                    xstream.alias("IncidenciasReportadas", List.class);
+                                    System.out.format("\nListado exportado en fichero %s\n", nombrefichero);
+                                    xstream.toXML(myList, new FileOutputStream(nombrefichero));
+
+                                } catch (FileNotFoundException f) {
+                                    System.out.println("Error E/S" + f.getMessage());
+                                }
+
+                                //MOSTRAMOS EN PANTALLA EL RESULTADO
+                                System.out.println("\n LISTADO TOP 10 INCIDENCIAS CON MAS HORAS");
+                                for (Incidencia i: myList){
+                                    System.out.println(i);
+                                }
+
+                                break;
+                            }
+                            default: System.out.println("Opcion incorrecta");
                         }
 
                     } while (!(opcion8.equals("0")));
@@ -155,11 +219,8 @@ public class Main {
 
     private static void showQueryMenu() {
         System.out.println(
-                "\n1. Consulta incidencias Abiertas.\n" +
-                        "3. Consulta incidencias pendientes por Area a XML\n" +
-                        "2. Incidencias cerradas por técnico a XML\n" +
-                        "4. Top Incidencias abiertas con más horas a XML\n" +
-
+                "\n1. Consulta incidencias por Area y estado a XML\n" +
+                        "2. Top 10 Incidencias abiertas con más horas a XML (desde fichero .xq)\n" +
                         "0. Salir\n"
         );
     }
