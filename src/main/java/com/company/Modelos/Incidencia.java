@@ -92,6 +92,8 @@ public class Incidencia implements Serializable {
         this.horas = horas;
     }
 
+    public void addHoras(int horas) { this.horas+=horas;}
+
     public int getIdTecnicoCierre() {
         return idTecnicoCierre;
     }
@@ -103,8 +105,8 @@ public class Incidencia implements Serializable {
     @Override
     public String toString() {
         return "Incidencia id: " + id +
-                ", descripcion: " + descripcion + '\'' +
-                ", area: " + IdArea + '\'' +
+                ", descripcion: " + descripcion +
+                ", area: " + IdArea  +
                 ", resuelta: " + resuelta +
                 ", Horas acumuladas: " + horas +
                 (isResuelta()?(" ,Tecnico Cierre: "+idTecnicoCierre):"");

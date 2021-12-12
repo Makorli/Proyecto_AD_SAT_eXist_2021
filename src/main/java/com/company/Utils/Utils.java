@@ -44,26 +44,26 @@ public class Utils {
 
             case "INTEGER":
                 try {
-                    System.out.format("Introduce %s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
+                    System.out.format("%s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
                     o = (T) Integer.valueOf(br.readLine());
                 } catch (NumberFormatException | IOException e) {
-                    System.out.format("Dato %s introducido no correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
+                    System.out.format("%s no es correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
                 }
                 break;
             case "STRING":
                 try {
-                    System.out.format("Introduce %s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
+                    System.out.format("%s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
                     o = (T) br.readLine();
                 } catch (IOException e) {
-                    System.out.format("Dato %s introducido no correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
+                    System.out.format("%s no es correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
                 }
                 break;
             case "DOUBLE":
                 try {
-                    System.out.format("Introduce %s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
+                    System.out.format("%s: ", (textoDescripcion.isEmpty()) ? "dato" : textoDescripcion);
                     o = (T) Double.valueOf(br.readLine());
                 } catch (NumberFormatException | IOException e) {
-                    System.out.format("Dato %s introducido no correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
+                    System.out.format("%s no es correcto\n", (textoDescripcion.isEmpty()) ? tipodato : textoDescripcion);
                 }
                 break;
 

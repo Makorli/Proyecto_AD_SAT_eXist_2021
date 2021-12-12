@@ -1,11 +1,9 @@
 package com.company.Controlador.Ficheros;
 
-import com.company.Controlador.*;
 import com.company.Modelos.Area;
 import com.company.Modelos.Incidencia;
 import com.company.Modelos.Tecnico;
 import com.company.Modelos.Trabajo;
-import com.company.Utils.TecnicoCV;
 import com.thoughtworks.xstream.XStream;
 
 import java.io.FileNotFoundException;

@@ -1,8 +1,6 @@
-package com.company;
+package com.company.Controlador;
 
-import com.company.Controlador.*;
-import com.company.Controlador.Ficheros.CargarFicheros_OOS;
-import com.company.Controlador.Ficheros.EscribirFicheros_OOS;
+import com.company.Controlador.Ficheros.*;
 import com.company.Modelos.Area;
 import com.company.Modelos.Incidencia;
 import com.company.Modelos.Tecnico;

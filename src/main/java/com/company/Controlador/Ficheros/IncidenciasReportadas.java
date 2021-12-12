@@ -1,4 +1,4 @@
-package com.company.Controlador;
+package com.company.Controlador.Ficheros;
 
 import com.company.Modelos.Incidencia;
 import com.thoughtworks.xstream.annotations.XStreamAlias;

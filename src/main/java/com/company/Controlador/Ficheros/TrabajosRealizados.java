@@ -1,4 +1,4 @@
-package com.company.Controlador;
+package com.company.Controlador.Ficheros;
 
 import com.company.Modelos.Trabajo;
 

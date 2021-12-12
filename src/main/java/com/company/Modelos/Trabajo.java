@@ -66,5 +66,12 @@ public class Trabajo implements Serializable {
         this.horas = horas;
     }
 
+    @Override
+    public String toString() {
+        return "Trabajo id: " + id +
+                ", idIncidencia: " + idIncidencia +
+                ", idTecnico: " + idTecnico +
+                ", horas: " + horas;
+    }
 }
 

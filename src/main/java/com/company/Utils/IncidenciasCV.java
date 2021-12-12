@@ -45,7 +45,8 @@ public class IncidenciasCV implements Converter {
 
         //Atributos
         incidencia.setId(Integer.parseInt(reader.getAttribute("Id")));
-        incidencia.setResuelta(Boolean.parseBoolean(reader.getAttribute("Resuelta")));
+        String tmp = reader.getAttribute("Resuelta");
+        incidencia.setResuelta(tmp.equalsIgnoreCase("SI"));
 
         //descripcion
         reader.moveDown();
